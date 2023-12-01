@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - US/EU Development/QA
+name: Build and deploy Node.js app to Azure Web App - US/EU production
 
 on:
   push:
     branches:
-      - dev
+      - master
   workflow_dispatch:
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Development'
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -46,19 +46,19 @@ jobs:
         with:
           name: node-app
 
-      - name: 'Deploy to QA Azure Web App - app-salesforce-proxy-centralus-prod-001'
+      - name: 'Deploy to Azure Web App - app-salesforce-proxy-centralus-prod-001'
         id: deploy-to-webapp-centralus
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'app-salesforce-proxy-centralus-prod-001'
-          slot-name: 'qa'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CENTRALUS_QA }}
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_24EBAA127DFC426FAA0714099E25A326 }}
           package: .
-      - name: 'Deploy to Dev Azure Web App - app-salesforce-proxy-westeurope-prod-001'
+      - name: 'Deploy to Azure Web App - app-salesforce-proxy-westeurope-prod-001'
         id: deploy-to-webapp-westeurope
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'app-salesforce-proxy-westeurope-prod-001'
-          slot-name: 'dev'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_WESTEUROPE_DEV }}
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9BF349E18D42438DB603E34FB2D3545F }}
           package: .
