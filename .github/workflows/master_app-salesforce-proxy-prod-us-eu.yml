@@ -62,19 +62,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9BF349E18D42438DB603E34FB2D3545F }}
           package: .
-      - name: 'Deploy to Azure Web App - app-salesforce-proxy-westus2-prod-001'
-        id: deploy-to-webapp-westus2
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'app-salesforce-proxy-westus2-prod-001'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_44890FB90BA142569D59B1FA6A6185DB }}
-          package: .
-      - name: 'Deploy to Azure Web App - app-salesforce-proxy-northeurope-prod-001'
-        id: deploy-to-webapp-northeurope
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'app-salesforce-proxy-northeurope-prod-001'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19CAEB76D3F34A77B6D7CD7DFD2585D7 }}
-          package: .
