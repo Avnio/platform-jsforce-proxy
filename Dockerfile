@@ -1,4 +1,4 @@
-FROM node:18.18.0 AS base
+FROM node:20.12.0 AS base
 
 WORKDIR /src
 COPY . /src/
