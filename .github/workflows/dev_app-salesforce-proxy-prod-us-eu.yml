@@ -59,12 +59,12 @@ jobs:
           app-name: 'app-salesforce-proxy-centralus-prod-001'
           slot-name: 'qa'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CENTRALUS_QA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_416F2BDC573A4482B351C7D60D8099DB }}
       - name: 'Deploy to Dev Azure Web App - app-salesforce-proxy-westeurope-prod-001'
         id: deploy-to-webapp-westeurope
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'app-salesforce-proxy-westeurope-prod-001'
           slot-name: 'dev'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_WESTEUROPE_DEV }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A9DAC02A428C43A3807091815095F756 }}
           package: .
